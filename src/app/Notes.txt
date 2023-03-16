@@ -1,0 +1,9 @@
+spyOn() doesn't allows actual function to run, instead it just tracks if that function has been called or not.
+
+spyOn().and.callThrough() calls actual/original function
+
+createSpyObj() creates a mock service of that service which we intent to test.Hence actual service is not called. We don't need spyOn() now as it will take care of it.
+
+pipes ke sath .transfrom() use hota hai
+expect(pipe.transform(30)).toEqual('30(strongest)');
+
