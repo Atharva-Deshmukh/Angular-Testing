@@ -9,6 +9,8 @@ import { Post } from 'src/app/models/Post';
 export class PostComponent {
 
   // post component will recieve post data as input parameter of type Post or null. initialised to NULL 
+
+  // Input() and Output() are used to pass data between parent child components
   @Input() post!: Post;
   @Output() delete: EventEmitter<Post>= new EventEmitter<Post>();
 

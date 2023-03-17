@@ -1,8 +1,9 @@
-import { createMayBeForwardRefExpression } from '@angular/compiler';
 import {TestBed} from '@angular/core/testing'
+import { DebugElement } from "@angular/core";
 import { first } from "rxjs";
 import { Post } from "src/app/models/Post";
 import { PostComponent } from "./post.component";
+import { By } from '@angular/platform-browser';
 
 describe('Post Component', () => {
 
@@ -33,7 +34,7 @@ describe('Post Component', () => {
       expect(comp).toBeDefined();
   });
 
-  it('should render the post title in the anchor element', () =>{
+  it('should render the post title in the anchor element using native element', () =>{
 
     // we need a sample post to render
     const post: Post = { id: 1, body: 'body 1', title: 'title 1' };
@@ -54,6 +55,30 @@ describe('Post Component', () => {
     expect(a?.textContent).toContain(post.title);
 
   });
+
+  it('should render the post title in the anchor element using debug element', () =>{
+
+    // we need a sample post to render
+    const post: Post = { id: 1, body: 'body 1', title: 'title 1' };
+    
+    // assign this post that we created to component's post
+    comp.post = post;
+
+    // detect changes and update the component
+    fixture.detectChanges();
+
+    //  first create a debug element
+    const postDebugElement: DebugElement = fixture.debugElement;
+
+    // access <a> element now from that debug element
+    // agar id access karna hota to '#a_id' likhte
+    const aElement:HTMLElement = postDebugElement.query(By.css('a')).nativeElement;
+  
+    // assert
+    expect(aElement.textContent).toContain(post.title);
+
+  });
+
 
   // tested without using TestBed
   it('should raise an event when the delete post is clicked', () => {
