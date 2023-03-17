@@ -1,3 +1,5 @@
+Sample database used for get and put API calls -> https://jsonplaceholder.typicode.com/posts
+
 spyOn() doesn't allows actual function to run, instead it just tracks if that function has been called or not.
 
 spyOn().and.callThrough() calls actual/original function
