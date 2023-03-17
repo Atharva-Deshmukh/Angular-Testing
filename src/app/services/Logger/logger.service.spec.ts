@@ -1,10 +1,20 @@
 import { LoggerService } from "./logger.service";
+import { TestBed } from '@angular/core/testing';
 
 describe('LoggerService',() => {
 
   let service : LoggerService;
   beforeEach(() => {
-    service = new LoggerService();
+
+    // YE DEFAULT NHI THA
+
+    // first configure testing module and declare service instance in providers since its a service
+    TestBed.configureTestingModule({
+      providers:[LoggerService]
+    });
+
+    // get instance of the LoggerService. use inject() to get instance of a service
+    service = TestBed.inject(LoggerService);
   })
 
   it('should not have any messages at starting', () => {
