@@ -16,4 +16,5 @@ export class PostService {
   deletePost(post: Post){
     return this.http.delete<Post[]>(`https://jsonplaceholder.typicode.com/post/${post.id}`);
   }
+
 }

@@ -117,7 +117,7 @@ describe('Posts Component', () => {
       // first child ko sahi post mila ya nhi. 
       // To check that check if @Input() post has correct value or not
 
-      // post ka instance bnaya sabse pehle taaki uski post[] ko access kar paaye
+      // post ka instance bnaya sabse pehle taaki uski 
       let postComponentInstance = postComponentDebuggElements[i].componentInstance as PostComponent;
       expect(postComponentInstance.post.title).toEqual(POSTS[i].title);
     }
